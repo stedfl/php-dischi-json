@@ -15,6 +15,11 @@ header img {
   height: 40px;
 }
 
+header .form-select {
+  width: 200px;
+  height: 50%;
+}
+
 main {
   height: calc(100% - 70px);
   position: relative;

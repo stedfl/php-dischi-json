@@ -14,9 +14,14 @@
 <body>
   <div id="app">
     <header>
-      <div class="container h-100 d-flex align-items-center">
+      <div class="container h-100 d-flex align-items-center justify-content-between">
         <img src="img/logo.svg" alt="logo">
+        <select @change="getAlbumsByGenre()" v-model="selectedGenre" class="form-select" aria-label="Default select example">
+          <option selected value="">All Genre</option>
+          <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
+        </select>
       </div>
+    
     </header>
     <main class="py-5">
       <div class="container ">
