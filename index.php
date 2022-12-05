@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
   <script src='https://unpkg.com/vue@3'></script>
   <title>Spotify - Dischi</title>
 </head>
@@ -20,6 +21,53 @@
           <option selected value="">All Genres</option>
           <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
         </select>
+        <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Add Album
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Album To List</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Title</label>
+                    <input type="text" v-model.trim="newTitle" class="form-control" >
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Author</label>
+                    <input type="text"v-model.trim="newAuthor" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Year</label>
+                    <input type="number" v-model.trim="newYear" class="form-control">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Cover Album</label>
+                    <input type="text" v-model.trim="newPoster" class="form-control" placeholder="Image Url">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Genre</label>
+                    <select v-model="newGenre" class="form-select" aria-label="Default select example">
+                      <option selected value="">Choose</option>
+                      <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
+                    </select>
+                  </div>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button @click="addNewAlbum()" type="button" class="btn btn-info" data-bs-dismiss="modal">
+                  <i class="fa-solid fa-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     
     </header>

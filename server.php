@@ -15,7 +15,19 @@ if(isset($_POST['genre'])) {
   } else {
     $albums = $albums;
   }
-}
+};
+
+if(isset($_POST['title'])) {
+  $newAlbum = [
+    'title' => ucwords($_POST['title']),
+    'author' => ucwords($_POST['author']),
+    'year' => (int)$_POST['year'],
+    'poster' => $_POST['poster'],
+    'genre' => $_POST['genre']
+  ];
+  $albums[] = $newAlbum;
+  file_put_contents('dischi.json', json_encode($albums));
+};
 
 header('Content-Type: application/json');
 echo json_encode($albums);

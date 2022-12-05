@@ -8,7 +8,12 @@ createApp({
       genreList: [],
       isMoreInfo: false,
       infoAlbum: {},
-      selectedGenre: ''
+      selectedGenre: '',
+      newTitle:'',
+      newAuthor:'',
+      newYear: null,
+      newGenre:'',
+      newPoster: ''
     }
   },
   methods: {
@@ -43,6 +48,32 @@ createApp({
       .then(results => {
         this.albumsList = results.data;
       })
+    },
+    addNewAlbum() {
+      if(this.newTitle !== '') {
+        const data = {
+          title: this.newTitle,
+          author: this.newAuthor,
+          year: this.newYear,
+          poster: this.newPoster,
+          genre: this.newGenre
+        };
+        axios.post(this.apiUrl, data, 
+          {
+            headers: { 'Content-Type' : 'multipart/form-data'}
+        })
+        .then( results => {
+          this.resetAllInput();
+          this.albumsList = results.data;
+        })
+      }
+    },
+    resetAllInput() {
+      this.newTitle = '',
+      this.newAuthor = '',
+      this.newYear = null,
+      this.newGenre = '',
+      this.newPoster = ''
     }
   },
   mounted() {
