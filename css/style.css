@@ -1,0 +1,34 @@
+body {
+  background-color: #1d2d3c;
+}
+
+header {
+  height: 70px;
+  background-color: #06131f;
+}
+
+header img {
+  height: 40px;
+}
+
+main {
+  height: calc(100% - 70px);
+}
+
+.card {
+  background-color: #112030;
+  color: white;
+}
+
+.album {
+  font-size: 1.5rem;
+}
+
+.artist {
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+
+.publication-year {
+  font-size: 1.3rem;
+}

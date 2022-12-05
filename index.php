@@ -12,7 +12,26 @@
 </head>
 <body>
   <div id="app">
-  <h1>prova</h1>
+    <header>
+      <div class="container h-100 d-flex align-items-center">
+        <img src="img/logo.svg" alt="logo">
+      </div>
+    </header>
+    <main class="py-5">
+      <div class="container ">
+        <div class="row row-cols-3">
+          <div class="col px-5">
+            <div class="card mb-5 text-center p-5">
+              <img class="cover" src="https://images-na.ssl-images-amazon.com/images/I/51sBr4IWDwL.jpg" alt="">
+              <h2 class="album mt-3">New Jersey</h2>
+              <h3 class="artist">Bon Jovi</h3>
+              <h4 class="publication-year">1988</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  
   </div>
   
 
