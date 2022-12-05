@@ -17,7 +17,7 @@
       <div class="container h-100 d-flex align-items-center justify-content-between">
         <img src="img/logo.svg" alt="logo">
         <select @change="getAlbumsByGenre()" v-model="selectedGenre" class="form-select" aria-label="Default select example">
-          <option selected value="">All Genre</option>
+          <option selected value="">All Genres</option>
           <option v-for="(genre, index) in genreList" :key="index" :value="genre">{{genre}}</option>
         </select>
       </div>
@@ -25,7 +25,7 @@
     </header>
     <main class="py-5">
       <div class="container ">
-        <div class="row row-cols-3">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3">
           <div v-for="(album, index) in albumsList" :key="index" class="col px-5">
             <div @click="getMoreInfo(index)" class="card mb-5 text-center p-5">
               <img class="cover" :src="album.poster" :alt="album.title">
