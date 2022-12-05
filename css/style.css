@@ -2,6 +2,10 @@ body {
   background-color: #1d2d3c;
 }
 
+ul {
+  list-style: none;
+}
+
 header {
   height: 70px;
   background-color: #06131f;
@@ -13,6 +17,7 @@ header img {
 
 main {
   height: calc(100% - 70px);
+  position: relative;
 }
 
 .card {
@@ -31,4 +36,23 @@ main {
 
 .publication-year {
   font-size: 1.1rem;
+}
+
+.info-album {
+  position: fixed;
+  color: white;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: #215a97;
+}
+
+.info-album img {
+  width: 400px;
+}
+
+.icon {
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
 }
