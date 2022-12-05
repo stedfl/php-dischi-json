@@ -21,14 +21,14 @@ main {
 }
 
 .album {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .artist {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
 }
 
 .publication-year {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
 }

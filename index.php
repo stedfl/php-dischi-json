@@ -20,12 +20,12 @@
     <main class="py-5">
       <div class="container ">
         <div class="row row-cols-3">
-          <div class="col px-5">
+          <div v-for="(album, index) in albumsList" :key="index" class="col px-5">
             <div class="card mb-5 text-center p-5">
-              <img class="cover" src="https://images-na.ssl-images-amazon.com/images/I/51sBr4IWDwL.jpg" alt="">
-              <h2 class="album mt-3">New Jersey</h2>
-              <h3 class="artist">Bon Jovi</h3>
-              <h4 class="publication-year">1988</h4>
+              <img class="cover" :src="album.poster" :alt="album.title">
+              <h2 class="album mt-3">{{album.title}}</h2>
+              <h3 class="artist">{{album.author}}</h3>
+              <h4 class="publication-year">{{album.year}}</h4>
             </div>
           </div>
         </div>
@@ -33,8 +33,6 @@
     </main>
   
   </div>
-  
-
   <script src="js/script.js"></script>
 </body>
 </html>
