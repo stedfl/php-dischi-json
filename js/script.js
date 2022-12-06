@@ -13,7 +13,10 @@ createApp({
       newAuthor:'',
       newYear: null,
       newGenre:'',
-      newPoster: ''
+      newPoster: '',
+      errorMsg: '',
+      error: false,
+      myModal: null
     }
   },
   methods: {
@@ -43,14 +46,16 @@ createApp({
     },
     getAlbumsByGenre() {
       const data = new FormData();
-      data.append('genre', this.selectedGenre);
+      data.append('selectedGenre', this.selectedGenre);
       axios.post(this.apiUrl, data)
       .then(results => {
         this.albumsList = results.data;
       })
     },
     addNewAlbum() {
-      if(this.newTitle !== '') {
+      this.checkInput();
+      if(!this.error) {
+        this.myModal.hide();
         const data = {
           title: this.newTitle,
           author: this.newAuthor,
@@ -74,10 +79,20 @@ createApp({
       this.newYear = null,
       this.newGenre = '',
       this.newPoster = ''
+    },
+    checkInput() {
+      if(this.newTitle === '' || this.newAuthor === '') {
+        this.error = true;
+        this.errorMsg = 'Fill in at least the Title and Author fields!';
+      } else {
+        this.error = false;
+        this.errorMsg = '';
+      }
     }
   },
   mounted() {
     this.getAlbums();
+    this.myModal = new bootstrap.Modal(document.getElementById('exampleModal'));
   }
 
 }).mount('#app');

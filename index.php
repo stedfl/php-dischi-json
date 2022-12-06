@@ -35,6 +35,9 @@
               </div>
               <div class="modal-body">
                 <form>
+                  <div v-if="error" class="alert alert-danger" role="alert">
+                    Fill in at least the Title and Author fields!
+                  </div>
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Title</label>
                     <input type="text" v-model.trim="newTitle" class="form-control" >
@@ -61,7 +64,7 @@
               </form>
               </div>
               <div class="modal-footer">
-                <button @click="addNewAlbum()" type="button" class="btn btn-info" data-bs-dismiss="modal">
+                <button @click="addNewAlbum()" type="button" class="btn btn-info">
                   <i class="fa-solid fa-plus"></i>
                 </button>
               </div>
